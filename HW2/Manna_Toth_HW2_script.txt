@@ -1,0 +1,50 @@
+#Manna Toth HW2 2020/02/23
+
+ #  1. The total number of observations in the file
+ #  2. The total number of different species ids in descending order
+ #  3. The total number of different sexes
+
+#Write down both the commands used and the results in a file, and check for any irregularities or problems. 
+#Use the cut, sort, uniq, wc commands, redirection with > or >>, nano or anything else we learned.
+
+###############################################################################################
+#opening the folder and checking it
+cd ~/Documents/Semmelweis/2020-21-2/Adatelemzes/HW2
+
+ls
+
+##1. The total number of observations in the file 
+#is 35 550-1 so 35 549 (I discovered later that git includes the first row as a variable)
+
+wc surveys.csv  #the file contains 35 550 lines (total number of observations), 35 550 words and 1057138 characters
+wc survey.scv
+
+wc surveys.csv > lenghts.txt  #creating a file with the same info
+cat lenghts.txt
+
+
+## 2. The total number of different species ids in descending order
+
+head surveys.csv  #checking the column names and the firs few rows, 
+                  #species_id is the name of species ids column, it is the 6th column
+                  #sex is the 7th
+
+cut -d, -f 6 surveys.csv | sort -n | uniq -c | sort -n -r
+
+cut -d, -f 6 surveys.csv | sort -n | uniq -c | sort -n -r > species_id_num.txt #writing the result into a txt file
+cat species_id_num.txt
+
+
+##  3. The total number of different sexes
+
+cut -d, -f 7 surveys.csv | sort -n | uniq -c #there are 15 690 females and 17 348 males, there are 2511 observations with missing sex data
+
+cut -d, -f 7 surveys.csv | sort -n | uniq -c > sex_num.txt # writing the results into a txt
+cat sex_num.txt
+
+## 4. irregularities or problems
+1) There are missing values in this data
+2) I should find a way how not to include the first row (column names) as observations
+
+######################################################################################################
+###################################################################################################
