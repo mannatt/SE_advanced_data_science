@@ -5,4 +5,4 @@
 Advanced data science and programming course
 2021 spring semester
 
-[link]: [https://github.com/bence-szalai/datasci-adv-phd-course/blob/main/README.md]
+link: https://github.com/bence-szalai/datasci-adv-phd-course/blob/main/README.md
